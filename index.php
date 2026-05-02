@@ -1,3 +1,3 @@
 <?php
-echo "Hello CI/CD Worldjksajgkjasgk;
+echo "Hello CI/CD Worldjksajgkjasgk";
 ?>
