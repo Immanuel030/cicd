@@ -1,20 +1,7 @@
-from selenium import webdriver
-from selenium.webdriver.chrome.service import Service
-from selenium.webdriver.chrome.options import Options
-import time
+import urllib.request
 
-options = Options()
-options.add_argument("--headless=new")
-options.add_argument("--no-sandbox")
-options.add_argument("--disable-dev-shm-usage")
+response = urllib.request.urlopen("http://localhost")
+content = response.read().decode("utf-8")
 
-service = Service("/snap/bin/chromium.chromedriver")
-driver = webdriver.Chrome(service=service, options=options)
-
-driver.get("http://localhost")
-time.sleep(2)
-
-assert "Hello CI/CD World" in driver.page_source
+assert "Hello CI/CD World" in content
 print("TEST PASSED")
-
-driver.quit()
